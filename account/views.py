@@ -1,18 +1,13 @@
 from rest_framework.exceptions import AuthenticationFailed, ValidationError
-
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-
 from rest_framework.decorators import api_view, authentication_classes, permission_classes 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import BasicAuthentication, TokenAuthentication
 from rest_framework.response import Response
 from rest_framework import status
-
 from .models import User
 from .serializers import ChangePasswordSerializer, UserSerializer 
-
-
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.signals import user_logged_in
